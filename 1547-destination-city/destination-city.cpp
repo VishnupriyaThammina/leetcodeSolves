@@ -1,24 +1,17 @@
 class Solution {
 public:
-  //First Method
-
-string destCity(vector<vector<string>>& paths) 
-    {
-        int m = paths.size();
-        
-        unordered_map<string, int> mp;
-        for(int i = 0; i < m; i++)
-           mp[paths[i][0]]++;
-        
-        for(int i = 0; i < m; i++)
-        {
-            if(mp[paths[i][1]] < 1)
-                return paths[i][1];
+    string destCity(vector<vector<string>>& des) {
+        int m = des.size();
+        unordered_map<string,int> mp;
+        for(int i = 0; i<des.size();i++){
+            mp[des[i][0]]++;
+        }
+        for(int i =0;i<des.size();i++){
+            if(mp[des[i][1]]<1){
+                return des[i][1];
+            }
         }
         
-        return "";   
-    
+        return "";
     }
-	
-	
 };
