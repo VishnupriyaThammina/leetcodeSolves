@@ -1,18 +1,15 @@
 class Solution {
 public:
-int dpFib(int n , vector<int> & dp){
-if(n==0||n==1){
-    return n;
-}if(dp[n]!=-1){
-    return dp[n];
-}
-dp[n]=dpFib(n-1,dp)+dpFib(n-2,dp);
-return dp[n];
-}
-
     int fib(int n) {
-       // declaring my 1st ever dp array
-   vector<int> dp(n+1,-1);
-       return dpFib(n,dp); 
+       
+       int prev1 = 0;
+       int prev2 = 1;
+       int curr = 0;
+        for(int i = 1; i <=n;i++){
+           curr = prev1+prev2;
+           prev2 = prev1;
+           prev1 = curr;
+        }
+        return curr;
     }
 };
