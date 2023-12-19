@@ -3,12 +3,16 @@ public:
     int minCostClimbingStairs(vector<int>& cost) {
         //step1 is creating a dp array
         int n = cost.size();
-        vector<int> dp(n+1);
-        dp[0]=cost[0];
-        dp[1]=cost[1];
+      
+       int prev1=cost[0];
+       int prev2=cost[1];
+       int cur =0;
         for(int i=2;i<n;i++){
-            dp[i]=cost[i]+min(dp[i-1],dp[i-2]);
+           cur=cost[i]+min(prev1,prev2);
+           prev1=prev2;
+           prev2=cur;
+
         }
-        return min(dp[n-1],dp[n-2]);
+        return min(prev1,prev2);
     }
 };
