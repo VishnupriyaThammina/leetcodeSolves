@@ -5,8 +5,8 @@ class Solution {
 public:
     int maxScore(string s) {
         if(s=="01"){return 2;}
-        map<int,int> zeroes;
-        map<int,int>ones;
+        unordered_map<int,int> zeroes;
+        unordered_map<int,int>ones;
         int count =0;
         for(int i =0; i <s.length()-1;i++){
             if(s[i]=='0'){
