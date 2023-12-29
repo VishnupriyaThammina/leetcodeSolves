@@ -5,8 +5,9 @@ public:
         // lets make an unordered map
         unordered_map<int,int> mp;
         // we are storing the current number and index if compliment is not found;
+        int comp =0;
         for(int i = 0; i<nums.size();i++){
-            int comp = target-nums[i];
+             comp = target-nums[i];
             // mp uses find
             if(mp.find(comp)!=mp.end()){
                 return {mp[comp],i};
