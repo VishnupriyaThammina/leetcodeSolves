@@ -7,6 +7,7 @@ public:
         // we are storing the current number and index if compliment is not found;
         for(int i = 0; i<nums.size();i++){
             int comp = target-nums[i];
+            // mp uses find
             if(mp.find(comp)!=mp.end()){
                 return {mp[comp],i};
             }
