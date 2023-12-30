@@ -17,9 +17,12 @@ if(vis[i][j]==0 && grid[i][j]=='1'){
         vis[i][j]=1;
 
     while(!q.empty()){    
+        int c = q.front().first;
+        int r = q.front().second;
+
         for(int k = 0; k<4;k++){
-            int nc = q.front().first+cc[k];
-            int nr = q.front().second+rr[k];
+            int nc = c+cc[k];
+            int nr = r+rr[k];
             if(nc>=0 && nc<n && nr>=0 && nr<m && grid[nc][nr]=='1'&& vis[nc][nr]==0){
                 vis[nc][nr]=1;
                 q.push({nc,nr});
