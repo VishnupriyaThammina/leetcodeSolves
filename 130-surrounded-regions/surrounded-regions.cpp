@@ -5,7 +5,6 @@ public:
         int cc[] = {0,0,1,-1};
         int rr[] = {1,-1,0,0};
         vector<vector<int>> vis(b.size(),vector<int>(b[0].size()));
-      
         queue<pair<int,int>>q;
     int flag = 0;
         vector<pair<int,int>> im;
@@ -31,13 +30,9 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
      if(nc == 0 ||nc==b.size()-1 || nr == 0 || nr== b[0].size()-1){
                     flag = 1;
                 }
-}
-  
-
-                        }
+}         }
                         q.pop();
-                       
-                    }
+ }
                     if(flag==0){
                         for(auto p : im){
                              b[p.first][p.second]='X';
