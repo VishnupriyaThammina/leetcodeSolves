@@ -5,15 +5,20 @@ public:
         int cc[] = {0,0,1,-1};
         int rr[] = {1,-1,0,0};
         vector<vector<int>> vis(b.size(),vector<int>(b[0].size()));
-        unordered_map<int,vector<pair<int,int>>> im;
+      
         queue<pair<int,int>>q;
         int index = 0;
         for(int i = 0; i <b.size();i++){
             for(int j = 0; j<b[i].size();j++){
                 if(b[i][j]=='O' && vis[i][j]==0){
                     vis[i][j]=1;
+                    vector<pair<int,int>> im;
                     q.push({i,j});
-im[index].push_back({i,j});
+im.push_back({i,j});
+int flag = 0;
+  if(i == 0 ||i==b.size()-1 || j == 0 || j== b[0].size()-1){
+                    flag = 1;
+                }
                     while(!q.empty()){
                         for(int k = 0; k<4;k++){
                             int nc = q.front().first+cc[k];
@@ -21,12 +26,22 @@ im[index].push_back({i,j});
 if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc][nr]==0){
     vis[nc][nr]=1;
     q.push({nc,nr});
-    im[index].push_back({nc,nr});
+    im.push_back({nc,nr});
+     if(nc == 0 ||nc==b.size()-1 || nr == 0 || nr== b[0].size()-1){
+                    flag = 1;
+                }
 }
+  
+
                         }
                         q.pop();
                        
-                    } index++;
+                    }
+                    if(flag==0){
+                        for(auto p : im){
+                             b[p.first][p.second]='X';
+                        }
+                    }
                 }
             }
         }
@@ -34,21 +49,21 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
         // this is when i should get make up my mind to write this code
         // i should i iterate my islads info
         // and check if any of the indices lie on the borders if they do then i should just ignore the the whole island and move on
-        for( auto i : im){
-            int flag = 0;
-            for(auto j : i.second){
+        // for( auto i : im){
+        //     int flag = 0;
+        //     for(auto j : i.second){
                 
-                if(j.first == 0 ||j.first==b.size()-1 || j.second == 0 || j.second == b[0].size()-1){
-                    flag = 1;
-                }
+        //         if(j.first == 0 ||j.first==b.size()-1 || j.second == 0 || j.second == b[0].size()-1){
+        //             flag = 1;
+        //         }
             
-            }
+        //     }
          
-            if(flag == 0){
-                for(auto j : i.second){
-                    b[j.first][j.second]='X';
-                }
-            }
-        }
+        //     if(flag == 0){
+        //         for(auto j : i.second){
+        //             b[j.first][j.second]='X';
+        //         }
+        //     }
+        // }
     }
 };
