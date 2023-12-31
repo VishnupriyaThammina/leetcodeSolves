@@ -17,10 +17,11 @@ for(int i = 0; i < grid.size();i++)
                 if(nc<0 || nc>=grid.size() || nr <0 || nr>=grid[0].size()){
                     peri++;
                 }
-                else if(nc>=0 && nc < grid.size() && nr >= 0 && nr < grid[0].size() && grid[nc][nr]==0){
-                  
-                        peri++;
+                else if(nc>=0 && nc < grid.size() && nr >= 0 && nr < grid[0].size() ){
                  
+                    if(grid[nc][nr]==0){
+                        peri++;
+                    }
                 }
             }
         }
