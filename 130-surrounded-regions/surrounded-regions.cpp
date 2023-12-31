@@ -7,15 +7,16 @@ public:
         vector<vector<int>> vis(b.size(),vector<int>(b[0].size()));
       
         queue<pair<int,int>>q;
-        int index = 0;
+    int flag = 0;
+        vector<pair<int,int>> im;
         for(int i = 0; i <b.size();i++){
             for(int j = 0; j<b[i].size();j++){
                 if(b[i][j]=='O' && vis[i][j]==0){
                     vis[i][j]=1;
-                    vector<pair<int,int>> im;
+                    
                     q.push({i,j});
 im.push_back({i,j});
-int flag = 0;
+
   if(i == 0 ||i==b.size()-1 || j == 0 || j== b[0].size()-1){
                     flag = 1;
                 }
@@ -42,6 +43,8 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
                              b[p.first][p.second]='X';
                         }
                     }
+                    im.clear();
+                    flag = 0;
                 }
             }
         }
