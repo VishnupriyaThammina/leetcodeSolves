@@ -1,7 +1,6 @@
 class Solution {
 public:
     void solve(vector<vector<char>>& b) {
-        // initially i have future column and row requirments
         int cc[] = {0,0,1,-1};
         int rr[] = {1,-1,0,0};
         vector<vector<int>> vis(b.size(),vector<int>(b[0].size()));
@@ -15,7 +14,6 @@ public:
                     
                     q.push({i,j});
 im.push_back({i,j});
- 
  while(!q.empty()){
       if(q.front().first == 0 ||q.front().first==b.size()-1 || q.front().second == 0 || q.front().second== b[0].size()-1){
                     flag = 1;
@@ -28,8 +26,7 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
     q.push({nc,nr});
     im.push_back({nc,nr});
     
-}         }
-                        q.pop();
+}         }  q.pop();
  }
                     if(flag==0){
                         for(auto p : im){
@@ -41,7 +38,5 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
                 }
             }
         }
-
-     
     }
 };
