@@ -15,11 +15,11 @@ public:
                     
                     q.push({i,j});
 im.push_back({i,j});
-
-  if(i == 0 ||i==b.size()-1 || j == 0 || j== b[0].size()-1){
+ 
+ while(!q.empty()){
+      if(q.front().first == 0 ||q.front().first==b.size()-1 || q.front().second == 0 || q.front().second== b[0].size()-1){
                     flag = 1;
                 }
-                    while(!q.empty()){
                         for(int k = 0; k<4;k++){
                             int nc = q.front().first+cc[k];
                             int nr = q.front().second+rr[k];
@@ -27,9 +27,7 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
     vis[nc][nr]=1;
     q.push({nc,nr});
     im.push_back({nc,nr});
-     if(nc == 0 ||nc==b.size()-1 || nr == 0 || nr== b[0].size()-1){
-                    flag = 1;
-                }
+    
 }         }
                         q.pop();
  }
