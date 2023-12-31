@@ -42,24 +42,6 @@ if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc
             }
         }
 
-        // this is when i should get make up my mind to write this code
-        // i should i iterate my islads info
-        // and check if any of the indices lie on the borders if they do then i should just ignore the the whole island and move on
-        // for( auto i : im){
-        //     int flag = 0;
-        //     for(auto j : i.second){
-                
-        //         if(j.first == 0 ||j.first==b.size()-1 || j.second == 0 || j.second == b[0].size()-1){
-        //             flag = 1;
-        //         }
-            
-        //     }
-         
-        //     if(flag == 0){
-        //         for(auto j : i.second){
-        //             b[j.first][j.second]='X';
-        //         }
-        //     }
-        // }
+     
     }
 };
