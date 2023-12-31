@@ -24,7 +24,7 @@ im.push_back({i,j});
                         for(int k = 0; k<4;k++){
                             int nc = q.front().first+cc[k];
                             int nr = q.front().second+rr[k];
-if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc][nr]==0){
+if( nc >=0 &&nc< b.size() && nr >=0 && nr<b[i].size()&& b[nc][nr]=='O' && vis[nc][nr]==0 ){
     vis[nc][nr]=1;
     q.push({nc,nr});
     im.push_back({nc,nr});
